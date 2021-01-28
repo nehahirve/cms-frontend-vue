@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Blog msg="It Wiggles." />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Blog from './components/Blog.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Blog
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Arapey&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arapey&family=Lexend+Zetta&family=Open+Sans&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arapey';
+  font-weight: 400;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+body {
+  background: url('./assets/bg.svg');
+  background-repeat: repeat-y;
+  background-size: 120vw;
+  background-position: center right;
 }
 </style>
