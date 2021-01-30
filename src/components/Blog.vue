@@ -3,12 +3,19 @@
     <h1>It Wiggles.</h1>
     <hr />
     <section>
-      <Post />
+      <ul>
+        <li v-for="post in posts" :key="post.id">
+          <h2>{{ post.title }}</h2>
+          <h3>{{ post.created_at.slice(0, 10) }}</h3>
+          <p>{{ post.body }}</p>
+        </li>
+      </ul>
     </section>
     <nav>
       <ul>
-        <li>Contact</li>
-        <li>About</li>
+        <li v-for="page in pages" :key="page.id">
+          {{ page.title }}
+        </li>
       </ul>
     </nav>
     <button>
@@ -35,7 +42,27 @@ export default {
   props: {
     msg: String
   },
-  components: { Post }
+  data() {
+    return {
+      posts: [],
+      pages: []
+    }
+  },
+
+  created() {
+    fetch('https://vast-fortress-99756.herokuapp.com/api/posts', {
+      method: 'GET'
+    })
+      .then(data => data.json())
+      .then(posts => posts.posts)
+      .then(posts => (this.posts = posts))
+    fetch('https://vast-fortress-99756.herokuapp.com/api/pages', {
+      method: 'GET'
+    })
+      .then(data => data.json())
+      .then(posts => posts.pages)
+      .then(posts => (this.pages = posts))
+  }
 }
 </script>
 
@@ -50,6 +77,10 @@ main {
 h1 {
   font-size: 5rem;
   padding: 3rem 0 1rem 0;
+}
+
+h2 {
+  font-family: 'Lexend Zetta';
 }
 
 hr {

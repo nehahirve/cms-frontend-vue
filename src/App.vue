@@ -1,15 +1,11 @@
 <template>
-  <Blog msg="It Wiggles." />
+  <router-view />
 </template>
 
 <script>
-import Blog from './components/Blog.vue'
-
 export default {
   name: 'App',
-  components: {
-    Blog
-  }
+  components: {}
 }
 </script>
 
